@@ -10,9 +10,9 @@ public class SwiftFlutterLaunchPlugin: NSObject, FlutterPlugin {
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
     if ("launchWathsApp" == call.method) {
-      let map = call.arguments as! Dictionary<String, String>
-      let phone = map["phone"]
-      let message = map["message"]
+      let args = call.arguments as! Dictionary<String, String>
+      let phone = args["phone"]
+      let message = args["message"]
 
       let urlString = "https://api.whatsapp.com/send?phone=\(phone ?? "0")&message=\(message ?? "0")"
 
