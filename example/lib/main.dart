@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_launch/flutter_launch.dart';
 
+
 void main() => runApp(new MyApp());
 
 class MyApp extends StatefulWidget {
@@ -16,7 +17,13 @@ class _MyAppState extends State<MyApp> {
   }
 
   void whatsAppOpen() async {
-    await FlutterLaunch.launchWathsApp(phone: "5534992016545", message: "Hello");
+    bool whatsapp = await FlutterLaunch.hasApp(name: "whatsapp");
+
+    if (whatsapp) {
+      await FlutterLaunch.launchWathsApp(phone: "5534992016545", message: "Hello");
+    } else {
+      print("Whatsapp não instalado");
+    }
   }
 
   @override
@@ -26,9 +33,14 @@ class _MyAppState extends State<MyApp> {
         appBar: new AppBar(
           title: new Text('Plugin example app'),
         ),
-        body: new Center(
+        body: Center(
           child: FlatButton(
-            child: Text("Open WhatsApp"),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text("Whatsapp",)
+              ],
+            ),
             onPressed: () {
               whatsAppOpen();
             },

@@ -30,12 +30,12 @@ class FlutterLaunchPlugin(val mRegistrar: Registrar): MethodCallHandler {
 
             if (call.method.equals("launchWathsApp")) {
 
-                val phone: String = call.argument("phone")//"5534992016100"
-                val message: String = call.argument("message")//"Olá, thyago."
+                val phone: String = call.argument("phone")
+                val message: String = call.argument("message")
 
                 val url: String = "https://api.whatsapp.com/send?phone=$phone&text=${URLEncoder.encode(message, "UTF-8")}"
 
-                if (whatsappInstalledOrNot("com.whatsapp")) {
+                if (appInstalledOrNot("com.whatsapp")) {
                     val intent: Intent = Intent(Intent.ACTION_VIEW)
                     intent.setPackage("com.whatsapp")
                     intent.setData(Uri.parse(url))
@@ -46,12 +46,23 @@ class FlutterLaunchPlugin(val mRegistrar: Registrar): MethodCallHandler {
                 }
             }
 
+            if (call.method.equals("hasApp")) {
+                val app: String = call.argument("name");
+
+                when(app) {
+                    "facebook" -> result.success(appInstalledOrNot("com.facebook.katana"))
+                    "whatsapp" -> result.success(appInstalledOrNot("com.whatsapp"))
+                    else -> {
+                        result.error("App not found", "", null)
+                    }
+                }
+            }
         } catch (e: PackageManager.NameNotFoundException) {
             result.error("Name not found", e.message, null)
         }
     }
 
-    private fun whatsappInstalledOrNot(uri: String) : Boolean {
+    private fun appInstalledOrNot(uri: String) : Boolean {
         val context: Context = mRegistrar.context();
         val pm: PackageManager = context.packageManager
         var appInstalled: Boolean
