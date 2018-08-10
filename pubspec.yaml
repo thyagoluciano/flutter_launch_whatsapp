@@ -1,7 +1,7 @@
 name: flutter_launch
 description: A Flutter plugin for iOS and Android to open whatsApp from a button.
 author: Thyago Luciano <thyagoluciano@gmail.com>
-version: 0.1.0
+version: 0.1.1
 homepage: https://github.com/thyagoluciano/flutter_launch_whatsapp
 
 dependencies:
@@ -14,4 +14,4 @@ flutter:
     pluginClass: FlutterLaunchPlugin
 
 environment:
-  sdk: ">=1.19.0 <2.0.0"
+  sdk: ">=1.19.0 <=2.0.0"

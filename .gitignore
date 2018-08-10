@@ -3,6 +3,10 @@
 
 .packages
 .pub/
+
+.vscode
+.idea
+
 pubspec.lock
 
 build/
