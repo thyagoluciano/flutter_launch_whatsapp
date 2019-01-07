@@ -30,8 +30,8 @@ class FlutterLaunchPlugin(val mRegistrar: Registrar): MethodCallHandler {
 
             if (call.method.equals("launchWathsApp")) {
 
-                val phone: String = call.argument("phone")
-                val message: String = call.argument("message")
+                val phone: String? = call.argument("phone")
+                val message: String? = call.argument("message")
 
                 val url: String = "https://api.whatsapp.com/send?phone=$phone&text=${URLEncoder.encode(message, "UTF-8")}"
 
@@ -47,7 +47,7 @@ class FlutterLaunchPlugin(val mRegistrar: Registrar): MethodCallHandler {
             }
 
             if (call.method.equals("hasApp")) {
-                val app: String = call.argument("name");
+                val app: String? = call.argument("name");
 
                 when(app) {
                     "facebook" -> result.success(appInstalledOrNot("com.facebook.katana"))
