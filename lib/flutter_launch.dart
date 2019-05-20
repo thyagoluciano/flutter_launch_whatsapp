@@ -1,6 +1,6 @@
 import 'dart:async';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:meta/meta.dart';
 
 class FlutterLaunch {
   static const MethodChannel _channel = const MethodChannel('flutter_launch');

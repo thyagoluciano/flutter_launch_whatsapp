@@ -1,8 +1,10 @@
 name: flutter_launch
 description: Flutter Lauch
 version: 0.2.0
-author:
-homepage:
+authors: 
+- Thyago Luciano <thyagoluciano@gmail.com>
+
+homepage: https://github.com/thyagoluciano/flutter_launch_whatsapp
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
