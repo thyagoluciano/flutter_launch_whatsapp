@@ -19,7 +19,7 @@ class _MyAppState extends State<MyApp> {
     bool whatsapp = await FlutterLaunch.hasApp(name: "whatsapp");
 
     if (whatsapp) {
-      await FlutterLaunch.launchWathsApp(phone: "5534988512935", message: "Hello");
+      await FlutterLaunch.launchWathsApp(phone: "5534992016100", message: "Hello, flutter_launch");
     } else {
       print("Whatsapp não instalado");
     }
