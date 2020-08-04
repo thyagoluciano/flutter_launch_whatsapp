@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 class FlutterLaunch {
   static const MethodChannel _channel = const MethodChannel('flutter_launch');
 
-  static Future<Null> launchWathsApp(
+  static Future<Null> launchWhatsApp(
       {@required String phone, @required String message}) async {
     final Map<String, dynamic> params = <String, dynamic>{
       'phone': phone,
