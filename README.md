@@ -1,4 +1,7 @@
-# Flutter launch WhatsApp
+# This project has been discontinued
+
+
+## Flutter launch WhatsApp
 
 A Flutter plugin for iOS and Android to open whatsApp.
 
