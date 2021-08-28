@@ -1,5 +1,3 @@
-# This project has been discontinued
-
 
 ## Flutter launch WhatsApp
 
