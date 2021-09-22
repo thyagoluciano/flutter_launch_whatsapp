@@ -1,5 +1,5 @@
 name: flutter_launch
-description: A new flutter plugin project.
+description: A Flutter plugin for iOS and Android to open whatsApp.
 version: 0.3.0
 homepage: https://github.com/thyagoluciano/flutter_launch_whatsapp
 

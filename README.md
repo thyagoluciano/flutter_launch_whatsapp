@@ -1,14 +1,17 @@
-## Flutter launch WhatsApp
+# flutter_launch
 
-A Flutter plugin for iOS and Android to open whatsApp.
 
 [![pub package](https://img.shields.io/badge/pub-0.3.0-blue.svg)](https://pub.dartlang.org/packages/flutter_launch)
 
+A Flutter plugin for launching a whatsApp. Supports: iOS, Android
+
+## Usage 
+
+To use this plugin, add `flutter_launch_whatsapp` as a [dependency in your pubspec.yaml file](https://flutter.dev/platform-plugins/).
+
 ## Installation
 
-First, add flutter_launch_whatsapp as a dependency in your pubspec.yaml file.
-
-## iOS
+### iOS
 
 Add the following entry to your Info.plist file, located in <project root>/ios/Runner/Info.plist:
 
@@ -19,7 +22,7 @@ Add the following entry to your Info.plist file, located in <project root>/ios/R
 </array>
 ````
 
-## Android
+### Android
 
 n/a
 
