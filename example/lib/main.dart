@@ -35,20 +35,6 @@ class _MyAppState extends State<MyApp> {
     }
   }
 
-  void whatsAppBusinesOpen() async {
-    bool whatsapp = await FlutterLaunch.hasApp(name: "whatsapp.wb4");
-
-    if (whatsapp) {
-      await FlutterLaunch.launchWhatsapp(
-          phone: "5534992016100", message: "Hello, flutter_launch");
-    } else {
-      setState(() {
-        err = false;
-        msgErr = '';
-      });
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

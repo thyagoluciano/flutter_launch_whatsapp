@@ -2,7 +2,7 @@
 
 A Flutter plugin for iOS and Android to open whatsApp.
 
-[![pub package](https://img.shields.io/badge/pub-0.2.0-blue.svg)](https://pub.dartlang.org/packages/flutter_launch)
+[![pub package](https://img.shields.io/badge/pub-0.3.0-blue.svg)](https://pub.dartlang.org/packages/flutter_launch)
 
 ## Installation
 

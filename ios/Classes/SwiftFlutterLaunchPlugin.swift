@@ -3,7 +3,7 @@ import UIKit
 
 public class SwiftFlutterLaunchPlugin: NSObject, FlutterPlugin {
   public static func register(with registrar: FlutterPluginRegistrar) {
-    let channel = FlutterMethodChannel(name: "flutter_launch", binaryMessenger: registrar.messenger())
+    let channel = FlutterMethodChannel(name: "br.com.thyagoluciano/flutter_launch", binaryMessenger: registrar.messenger())
     let instance = SwiftFlutterLaunchPlugin()
     registrar.addMethodCallDelegate(instance, channel: channel)
   }
