@@ -47,7 +47,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   void whatsAppOpen() async {
-    await FlutterLaunch.launchWathsApp(phone: "5534992016545", message: "Hello");
+    await FlutterLaunch.launchWhatsapp(phone: "5534992016545", message: "Hello");
   }
 
   @override
