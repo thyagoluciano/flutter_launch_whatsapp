@@ -15,7 +15,7 @@ public class SwiftFlutterLaunchPlugin: NSObject, FlutterPlugin {
       let phone = args["phone"]
       let message = args["message"]
 
-      let urlString = "whatsapp://send?phone=\(phone ?? "0")&message=\(message ?? "0")"
+      let urlString = "whatsapp://send?phone=\(phone ?? "0")&text=\(message ?? "")"
 
       let urlStringEncoded = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
       let URL = NSURL(string: urlStringEncoded!)
