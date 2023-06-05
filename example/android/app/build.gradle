@@ -57,6 +57,8 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+    namespace 'br.com.thyagoluciano.flutter_launch'
+
 }
 
 flutter {
