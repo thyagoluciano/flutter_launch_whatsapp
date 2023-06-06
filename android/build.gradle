@@ -44,6 +44,8 @@ android {
         minSdkVersion 16
     }
 
+    namespace 'br.com.thyagoluciano.flutter_launch'
+
 }
 
 dependencies {
