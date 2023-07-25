@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
+import android.widget.Toast
 import androidx.annotation.NonNull
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.MethodCall
@@ -31,29 +32,39 @@ class FlutterLaunchPlugin: FlutterPlugin, MethodCallHandler {
 
       if (call.method == "launchWhatsapp") {
 
-        val phone: String? = call.argument("phone")
-        val message: String? = call.argument("message")
+        try {
 
-        val url: String = "https://api.whatsapp.com/send?phone=$phone&text=${URLEncoder.encode(message, "UTF-8")}"
+          val phone: String? = call.argument("phone")
+          val message: String? = call.argument("message")
 
-        if (appInstalledOrNot("com.whatsapp")) {
-          val intent: Intent = Intent(Intent.ACTION_VIEW)
-          intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-          intent.setPackage("com.whatsapp")
-          intent.data = Uri.parse(url)
+          val url: String = "https://api.whatsapp.com/send?phone=$phone&text=${URLEncoder.encode(message, "UTF-8")}"
 
-          if (intent.resolveActivity(pm) != null) {
-            context.startActivity(intent)
+          if (appInstalledOrNot("com.whatsapp")) {
+            val intent: Intent = Intent(Intent.ACTION_VIEW)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            intent.setPackage("com.whatsapp")
+            intent.data = Uri.parse(url)
+
+            if (intent.resolveActivity(pm) != null) {
+              context.startActivity(intent)
+            }
+          } else if (appInstalledOrNot("com.whatsapp.wb4")) {
+            val intent: Intent = Intent(Intent.ACTION_VIEW)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            intent.setPackage("com.whatsapp.wb4")
+            intent.data = Uri.parse(url)
+
+            if (intent.resolveActivity(pm) != null) {
+              context.startActivity(intent)
+            }
           }
-        } else if (appInstalledOrNot("com.whatsapp.wb4")) {
-          val intent: Intent = Intent(Intent.ACTION_VIEW)
-          intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-          intent.setPackage("com.whatsapp.wb4")
-          intent.data = Uri.parse(url)
+         } catch (e: PackageManager.NameNotFoundException) {
+            Toast.makeText(context, "No app was found with the application ID ${call.argument<String>("applicationId")}\nOpening Google Play...", Toast.LENGTH_LONG).show()
+            result.error("APP_NOT_FOUND", "No app was found with the specified application ID", "Please specify a correct application ID");
 
-          if (intent.resolveActivity(pm) != null) {
-            context.startActivity(intent)
-          }
+            val i = Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.whatsapp"))
+            i.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            context.startActivity(i)
         }
       }
 
